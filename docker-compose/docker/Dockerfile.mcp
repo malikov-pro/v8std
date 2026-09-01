@@ -32,7 +32,8 @@ RUN chmod +x /opt/v8std/scripts/run_v8std_mcp.sh \
         --pages docs/ai/pages.jsonl \
         --output docs/ai/search-vectors.jsonl
 
-RUN adduser -S -D -H v8std \
+RUN addgroup -S v8std \
+    && adduser -S -D -H -G v8std v8std \
     && chown -R v8std:v8std /opt/v8std
 
 USER v8std
