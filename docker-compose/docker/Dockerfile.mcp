@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-alpine
 
 ARG PIP_INDEX_URL=https://pypi.org/simple
 ARG REVISION=unknown
@@ -19,9 +19,9 @@ ENV V8STD_REPO_ROOT=/opt/v8std \
 
 WORKDIR /opt/v8std
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends fonts-dejavu-core \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache font-dejavu \
+    && mkdir -p /usr/share/fonts/truetype \
+    && ln -s /usr/share/fonts/dejavu /usr/share/fonts/truetype/dejavu
 
 COPY requirements-mcp.txt /opt/v8std/requirements-mcp.txt
 COPY scripts /opt/v8std/scripts
@@ -36,7 +36,7 @@ RUN chmod +x /opt/v8std/scripts/run_v8std_mcp.sh \
         --pages docs/ai/pages.jsonl \
         --output docs/ai/search-vectors.jsonl
 
-RUN useradd --system --create-home v8std \
+RUN adduser -S -D -H v8std \
     && chown -R v8std:v8std /opt/v8std
 
 USER v8std
