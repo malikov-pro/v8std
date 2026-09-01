@@ -19,10 +19,6 @@ ENV V8STD_REPO_ROOT=/opt/v8std \
 
 WORKDIR /opt/v8std
 
-RUN apk add --no-cache font-dejavu \
-    && mkdir -p /usr/share/fonts/truetype \
-    && ln -s /usr/share/fonts/dejavu /usr/share/fonts/truetype/dejavu
-
 COPY requirements-mcp.txt /opt/v8std/requirements-mcp.txt
 COPY scripts /opt/v8std/scripts
 COPY docs /opt/v8std/docs
