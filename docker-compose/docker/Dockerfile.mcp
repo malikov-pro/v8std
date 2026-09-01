@@ -19,6 +19,8 @@ ENV V8STD_REPO_ROOT=/opt/v8std \
 
 WORKDIR /opt/v8std
 
+RUN apk add --no-cache bash
+
 COPY requirements-mcp.txt /opt/v8std/requirements-mcp.txt
 COPY scripts /opt/v8std/scripts
 COPY docs /opt/v8std/docs

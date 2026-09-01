@@ -109,7 +109,7 @@ fi
 
 if [ "${SMOKE}" -eq 1 ]; then
     SMOKE_NAME="v8std-mcp-smoke-$$"
-    docker run -d --rm --name "${SMOKE_NAME}" \
+    docker run -d --name "${SMOKE_NAME}" \
         -p 127.0.0.1:8765:8765 \
         "${IMAGE}:${LOCAL_TAG}" >/dev/null
     ok=0
