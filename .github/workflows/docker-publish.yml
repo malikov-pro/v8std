@@ -10,7 +10,7 @@ on:
     - "requirements-mcp.txt"
     - "retrieval-rules.yml"
     - "zensical.toml"
-    - "docker-compose/docker/Dockerfile.mcp"
+    - "docker-compose-mcp-only/**"
     - ".github/workflows/docker-publish.yml"
   workflow_dispatch:
 
@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker-compose/docker/Dockerfile.mcp
+          file: docker-compose-mcp-only/docker/Dockerfile.mcp
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}

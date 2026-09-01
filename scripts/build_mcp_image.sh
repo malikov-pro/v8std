@@ -57,7 +57,7 @@ REVISION="$(git -C "${REPO_ROOT}" rev-parse HEAD)"
 CREATED="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 DATE_TAG="$(date -u +%Y-%m-%d)"
 SHA_TAG="sha-$(git -C "${REPO_ROOT}" rev-parse --short=12 HEAD)"
-DOCKERFILE="docker-compose/docker/Dockerfile.mcp"
+DOCKERFILE="docker-compose-mcp-only/docker/Dockerfile.mcp"
 
 BUILDER=""
 SMOKE_NAME=""

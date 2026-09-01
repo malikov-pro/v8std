@@ -100,6 +100,12 @@ cd v8std
 docker compose -f docker-compose/docker-compose.yml up -d v8std-mcp
 ```
 
+Только MCP, без сервера документации — из готового образа Docker Hub:
+
+```bash
+docker compose -f docker-compose-mcp-only/docker-compose.yml up -d v8std-mcp
+```
+
 Можно обойтись без клонирования репозитория. Готовый образ содержит базу
 стандартов и индекс поиска:
 
